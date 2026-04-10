@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { CLASS_ICONS, HERO_CLASSES } from '@/lib/constants';
 
+const PREVIEW_CLASS_COUNT = 5;
+
 export default function HomePage() {
   const classEntries = HERO_CLASSES.map((cls) => ({
     cls,
@@ -135,12 +137,12 @@ export default function HomePage() {
 
           <div className="flex items-center justify-between mt-8 pt-5 border-t border-white/[0.06]">
             <div className="flex items-center gap-2 text-xs text-slate-500">
-              {HERO_CLASSES.slice(0, 5).map((cls) => (
+              {HERO_CLASSES.slice(0, PREVIEW_CLASS_COUNT).map((cls) => (
                 <span key={cls} className="text-base" title={cls}>
                   {CLASS_ICONS[cls as keyof typeof CLASS_ICONS]}
                 </span>
               ))}
-              <span className="text-slate-600">+{HERO_CLASSES.length - 5} more</span>
+              <span className="text-slate-600">+{HERO_CLASSES.length - PREVIEW_CLASS_COUNT} more</span>
             </div>
             <span className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-400 group-hover:text-amber-300 transition-colors">
               Browse <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>

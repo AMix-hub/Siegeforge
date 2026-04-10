@@ -100,7 +100,7 @@ async function getFeaturedBuilds(): Promise<Build[]> {
   }
 }
 
-// Initials avatar colour buckets
+// Initials avatar color buckets
 const STREAMER_COLORS = [
   { bg: 'rgba(6,182,212,0.18)', border: 'rgba(6,182,212,0.45)', text: '#67e8f9' },
   { bg: 'rgba(124,58,237,0.18)', border: 'rgba(124,58,237,0.45)', text: '#c4b5fd' },
