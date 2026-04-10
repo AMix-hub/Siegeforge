@@ -37,7 +37,7 @@ export default function CopyLootFilterButton({
     return (
       <button
         onClick={handleCopy}
-        className="text-xs px-3 py-1 rounded-lg bg-amber-900/30 border border-amber-700/50 text-amber-400 hover:bg-amber-800/40 hover:text-amber-300 transition-all"
+        className="btn-forge"
       >
         {copied ? '✓ Copied!' : 'Copy Filter'}
       </button>
@@ -47,13 +47,7 @@ export default function CopyLootFilterButton({
   return (
     <button
       onClick={handleCopy}
-      className={[
-        'flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm',
-        'border transition-all duration-200',
-        copied
-          ? 'bg-green-900/40 border-green-600/60 text-green-300'
-          : 'bg-amber-900/30 border-amber-700/50 text-amber-300 hover:bg-amber-800/40 hover:border-amber-600/70',
-      ].join(' ')}
+      className={`btn-forge ${copied ? '!border-green-600/60 !text-green-300' : ''}`}
     >
       <span>{copied ? '✓' : '📋'}</span>
       {copied ? 'Loot Filter Copied!' : 'Copy Loot Filter'}
