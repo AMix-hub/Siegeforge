@@ -14,46 +14,49 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-200">
-        {/* Global nav */}
-        <header className="border-b border-amber-900/50 bg-slate-950/95 backdrop-blur sticky top-0 z-50 shadow-lg shadow-black/40">
-          <div className="max-w-5xl mx-auto px-4 pt-4 pb-3 flex flex-col items-center gap-2">
+      <body className="min-h-full flex flex-col bg-[#06060e] text-slate-200">
+
+        {/* ── Global nav ── */}
+        <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-[#06060e]/90 backdrop-blur-xl shadow-2xl shadow-black/60">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group select-none">
-              <span className="text-amber-600 text-2xl group-hover:text-amber-400 transition-colors">⚔</span>
-              <span className="text-2xl font-bold tracking-[0.25em] text-amber-400 group-hover:text-amber-300 transition-colors uppercase">
+            <Link href="/" className="flex items-center gap-2.5 group select-none">
+              <span className="text-2xl leading-none">⚔</span>
+              <span
+                className="text-xl font-bold tracking-[0.22em] uppercase text-gradient-gold group-hover:opacity-90 transition-opacity"
+                style={{ fontFamily: 'Georgia, serif' }}
+              >
                 SiegeForge
               </span>
-              <span className="text-amber-600 text-2xl group-hover:text-amber-400 transition-colors">⚔</span>
             </Link>
 
-            {/* Decorative rule */}
-            <div className="flex items-center gap-3 w-full max-w-xs">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent to-amber-900/60" />
-              <span className="text-amber-800 text-xs">◆</span>
-              <div className="flex-1 h-px bg-gradient-to-l from-transparent to-amber-900/60" />
-            </div>
-
             {/* Nav links */}
-            <nav className="flex items-center gap-6 text-xs font-medium tracking-widest uppercase text-slate-500">
-              <Link href="/" className="hover:text-amber-400 transition-colors">
-                Builds
+            <nav className="flex items-center gap-1 text-[11px] font-semibold tracking-widest uppercase">
+              <Link
+                href="/builds/featured"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-cyan-400/80 hover:text-cyan-300 hover:bg-cyan-950/40 transition-all"
+              >
+                <span className="text-base leading-none">✦</span> Featured
               </Link>
-              <span className="text-amber-900/60">◆</span>
-              <span className="text-slate-700 cursor-not-allowed" title="Coming soon">
-                Items
-              </span>
-              <span className="text-amber-900/60">◆</span>
-              <span className="text-slate-700 cursor-not-allowed" title="Coming soon">
-                Classes
-              </span>
+              <span className="text-white/10">|</span>
+              <Link
+                href="/builds/community"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-amber-400/80 hover:text-amber-300 hover:bg-amber-950/40 transition-all"
+              >
+                <span className="text-base leading-none">⚔</span> Community
+              </Link>
+              <span className="text-white/10">|</span>
+              <span className="px-3 py-1.5 text-slate-700 cursor-not-allowed" title="Coming soon">Items</span>
+              <span className="text-white/10">|</span>
+              <span className="px-3 py-1.5 text-slate-700 cursor-not-allowed" title="Coming soon">Classes</span>
             </nav>
           </div>
         </header>
 
         <main className="flex-1">{children}</main>
 
-        <footer className="border-t border-amber-900/20 py-4 text-center text-xs text-slate-600">
+        <footer className="border-t border-white/[0.05] py-5 text-center text-xs text-slate-600">
           SiegeForge &copy; {new Date().getFullYear()} &mdash; Fan-made. Not affiliated with Hero Siege.
         </footer>
       </body>

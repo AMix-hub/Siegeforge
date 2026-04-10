@@ -52,6 +52,8 @@ export interface Build {
   description: string | null;
   hero_class: string;
   gear: Gear;
+  category?: 'featured' | 'community';
+  streamer?: string | null;
   created_at: string;
   updated_at: string;
 }
