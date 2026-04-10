@@ -1,7 +1,76 @@
 import Link from 'next/link';
 import { CLASS_ICONS, HERO_CLASSES } from '@/lib/constants';
+import BuildCard from '@/components/BuildCard';
+import { Build } from '@/types';
 
 const PREVIEW_CLASS_COUNT = 5;
+
+// Representative showcase builds for the homepage gallery
+const SHOWCASE_BUILDS: Build[] = [
+  {
+    id: 'feat-1',
+    title: 'Inferno Overlord',
+    description: "Astarot's signature Pyromancer build. Dual-channeling Starlight + The Bible to clear screens in seconds.",
+    hero_class: 'Pyromancer',
+    category: 'featured',
+    streamer: 'Astarot',
+    gear: { weapon: { id: 1, stars: 5 }, offhand: { id: 4, stars: 5 }, armor: { id: 3, stars: 4 } },
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'demo-1',
+    title: 'Arcane Annihilator',
+    description: 'Max INT Pyromancer build with Starlight and The Bible for insane spell damage.',
+    hero_class: 'Pyromancer',
+    category: 'community',
+    gear: { weapon: { id: 1, stars: 5 }, offhand: { id: 4, stars: 4 }, armor: { id: 3, stars: 3 } },
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'feat-2',
+    title: 'Eternal Lich',
+    description: "SoulHarvester's immortal Necromancer. Full Godly Raiment stacked with HP, impossible to kill.",
+    hero_class: 'Necromancer',
+    category: 'featured',
+    streamer: 'SoulHarvester',
+    gear: { armor: { id: 3, stars: 5 }, head: { id: 2, stars: 5 }, offhand: { id: 4, stars: 4 } },
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'demo-3',
+    title: 'Prophet of Doom',
+    description: 'Holy staff build for the Prophet. Pairs Starlight with Cowl of the Dead.',
+    hero_class: 'Prophet',
+    category: 'community',
+    gear: { weapon: { id: 1, stars: 5 }, head: { id: 2, stars: 4 } },
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'feat-4',
+    title: 'Arctic Juggernaut',
+    description: "FrozenKing's insane Jötunn tank. Five-star Cowl + Raiment with no damage taken runs on Hell.",
+    hero_class: 'Jötunn',
+    category: 'featured',
+    streamer: 'FrozenKing',
+    gear: { head: { id: 2, stars: 5 }, armor: { id: 3, stars: 5 }, offhand: { id: 4, stars: 3 } },
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'demo-6',
+    title: 'Shadow Inquisitor',
+    description: 'Witch Hunter that maximises critical hit rate with dual cursed relics.',
+    hero_class: 'Witch Hunter',
+    category: 'community',
+    gear: { weapon: { id: 1, stars: 3 }, offhand: { id: 4, stars: 5 } },
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+];
 
 export default function HomePage() {
   const classEntries = HERO_CLASSES.map((cls) => ({
@@ -35,7 +104,7 @@ export default function HomePage() {
         </p>
         <h1
           className="text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-[0.12em] text-gradient-gold mb-5 animate-fade-up"
-          style={{ animationDelay: '0.1s', textShadow: '0 0 80px rgba(180,83,9,0.25)' }}
+          style={{ animationDelay: '0.1s', textShadow: '0 0 80px rgba(180,83,9,0.25)', fontFamily: "'Cinzel', 'Georgia', serif" }}
         >
           SiegeForge
         </h1>
@@ -43,10 +112,20 @@ export default function HomePage() {
           The ultimate build hub for Hero Siege. Browse certified streamer loadouts
           or discover what the community is forging right now.
         </p>
+
+        {/* CTA buttons */}
+        <div className="flex items-center justify-center gap-4 mt-8 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          <Link href="/builds/featured" className="btn-forge">
+            ✦ Featured Builds
+          </Link>
+          <Link href="/builds/community" className="btn-forge-ghost">
+            ⚔ Community Builds
+          </Link>
+        </div>
       </section>
 
       {/* ── Two build section cards ── */}
-      <section className="max-w-5xl mx-auto px-4 pb-20 grid sm:grid-cols-2 gap-6">
+      <section className="max-w-5xl mx-auto px-4 pb-16 grid sm:grid-cols-2 gap-6">
 
         {/* Featured Builds */}
         <Link
@@ -75,7 +154,8 @@ export default function HomePage() {
           </div>
 
           <div className="flex-1">
-            <h2 className="text-3xl font-black uppercase tracking-wider text-gradient-cyan mb-3">
+            <h2 className="text-3xl font-black uppercase tracking-wider text-gradient-cyan mb-3"
+              style={{ fontFamily: "'Cinzel', 'Georgia', serif" }}>
               Featured<br />Builds
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
@@ -126,7 +206,8 @@ export default function HomePage() {
           </div>
 
           <div className="flex-1">
-            <h2 className="text-3xl font-black uppercase tracking-wider text-gradient-gold mb-3">
+            <h2 className="text-3xl font-black uppercase tracking-wider text-gradient-gold mb-3"
+              style={{ fontFamily: "'Cinzel', 'Georgia', serif" }}>
               Community<br />Builds
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
@@ -151,8 +232,41 @@ export default function HomePage() {
         </Link>
       </section>
 
+      {/* ── Build Gallery ── */}
+      <section className="max-w-6xl mx-auto px-4 pb-20">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <p className="text-[10px] tracking-[0.4em] uppercase text-amber-600/70 mb-1">Loot Drops</p>
+            <h2
+              className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-gradient-gold"
+              style={{ fontFamily: "'Cinzel', 'Georgia', serif" }}
+            >
+              Showcase Builds
+            </h2>
+          </div>
+          <Link
+            href="/builds/community"
+            className="btn-forge hidden sm:inline-flex"
+          >
+            View All →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SHOWCASE_BUILDS.map((build) => (
+            <BuildCard key={build.id} build={build} />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-8 sm:hidden">
+          <Link href="/builds/community" className="btn-forge">
+            View All Builds →
+          </Link>
+        </div>
+      </section>
+
       {/* ── Class showcase strip ── */}
-      <section className="border-t border-white/[0.04] py-12">
+      <section className="border-t border-amber-900/20 py-12">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-center text-[10px] tracking-[0.45em] uppercase text-slate-600 mb-7">
             All Supported Classes
@@ -176,5 +290,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
