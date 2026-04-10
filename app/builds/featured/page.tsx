@@ -226,7 +226,7 @@ export default async function FeaturedBuildsPage() {
         </div>
 
         <h1
-          className="text-5xl md:text-7xl font-black uppercase tracking-[0.1em] text-gradient-cyan mb-5"
+          className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-[0.1em] text-gradient-cyan mb-5"
           style={{ textShadow: '0 0 80px rgba(6,182,212,0.2)' }}
         >
           Featured<br className="md:hidden" /> Builds

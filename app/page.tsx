@@ -34,7 +34,7 @@ export default function HomePage() {
           Hero Siege Build Archive
         </p>
         <h1
-          className="text-6xl md:text-8xl font-black uppercase tracking-[0.12em] text-gradient-gold mb-5 animate-fade-up"
+          className="text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-[0.12em] text-gradient-gold mb-5 animate-fade-up"
           style={{ animationDelay: '0.1s', textShadow: '0 0 80px rgba(180,83,9,0.25)' }}
         >
           SiegeForge
@@ -46,7 +46,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Two build section cards ── */}
-      <section className="max-w-5xl mx-auto px-4 pb-20 grid md:grid-cols-2 gap-6">
+      <section className="max-w-5xl mx-auto px-4 pb-20 grid sm:grid-cols-2 gap-6">
 
         {/* Featured Builds */}
         <Link
@@ -157,7 +157,7 @@ export default function HomePage() {
           <p className="text-center text-[10px] tracking-[0.45em] uppercase text-slate-600 mb-7">
             All Supported Classes
           </p>
-          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-3">
+          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-3">
             {classEntries.map(({ cls, icon }) => (
               <div
                 key={cls}
