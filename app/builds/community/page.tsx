@@ -202,7 +202,7 @@ export default async function CommunityBuildsPage() {
         </div>
 
         <h1
-          className="text-5xl md:text-7xl font-black uppercase tracking-[0.1em] text-gradient-gold mb-5"
+          className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-[0.1em] text-gradient-gold mb-5"
           style={{ textShadow: '0 0 80px rgba(180,83,9,0.2)' }}
         >
           Community<br className="md:hidden" /> Builds
